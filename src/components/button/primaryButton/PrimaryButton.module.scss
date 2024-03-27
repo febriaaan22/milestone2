@@ -2,9 +2,11 @@
     background-color: #a6d487; 
     color: #e7e7e6;
     text-transform: none;
+    box-shadow: none;
   
     &:hover {
       background-color: darken(#a6d487, 10%);
+      box-shadow: none;
     }
   }
   
