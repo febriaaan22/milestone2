@@ -1,0 +1,38 @@
+.wrapper {
+.navbar {
+    background-color: #F9FAFD;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 16px 8vw;
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      padding: 0 16px;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+      color: #a6d487;
+      text-decoration: none;
+      &:hover {
+        color: darken(#a6d487, 10%);
+      }
+    }
+    .navLinks {
+      display: flex;
+      gap: 32px;
+      .link {
+        color: #333;
+        text-decoration: none;
+        padding: 8px 16px;
+        &:hover {
+          color: darken(#333, 10%);
+        }
+      }
+    }
+    .buttonGroup {
+      display: flex;
+      gap: 16px;
+    }
+  }
+}

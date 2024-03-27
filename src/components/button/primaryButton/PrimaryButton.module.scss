@@ -1,0 +1,10 @@
+.primary {
+    background-color: #a6d487; 
+    color: #e7e7e6;
+    text-transform: none;
+  
+    &:hover {
+      background-color: darken(#a6d487, 10%);
+    }
+  }
+  
