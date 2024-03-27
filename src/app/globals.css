@@ -109,15 +109,3 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
-/* Media query for dark mode */
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-
-  body {
-    color: rgb(var(--foreground-rgb));
-    background-color: #1a1a1a; /* Dark mode background color */
-  }
-}
