@@ -1,0 +1,11 @@
+.secondary {
+    border: 1px solid #0b1207;
+    color: #0b1207;
+    text-transform: none;
+  
+    &:hover {
+      border-color: darken(#0b1207, 10%);
+      color: darken(#0b1207, 10%);
+    }
+  }
+  
