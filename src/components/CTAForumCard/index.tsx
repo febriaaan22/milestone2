@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Card, Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { PrimaryButton } from "..";
 import styles from "./CTAForumCard.module.scss";
@@ -12,11 +12,13 @@ const CTAForumCard: React.FC = () => {
   };
 
   return (
-    <Box className={styles.card}>
-      <Typography variant="h5" component="h2" className={styles.title}>
-        Find What You Looking For
-      </Typography>
-      <PrimaryButton text="Go To Forum" onClick={goToForum} />
+    <Box className={styles.container}>
+      <Card className={styles.card}>
+        <Typography variant="h5" component="h2" className={styles.title}>
+          Find What You Looking For
+        </Typography>
+        <PrimaryButton text="Go To Forum" onClick={goToForum} />
+      </Card>
     </Box>
   );
 };

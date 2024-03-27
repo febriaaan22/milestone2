@@ -32,7 +32,7 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onLoginClick }) => {
   };
 
   return (
-    <Box sx={{ display: "flex", justifyContent: "center", marginTop: "6vw" }}>
+    <Box sx={{ display: "flex", justifyContent: "center", marginTop: "7vw" }}>
       <Paper elevation={0} className={styles.wrapper}>
         <Typography variant="h4" className={styles.title}>
           Register

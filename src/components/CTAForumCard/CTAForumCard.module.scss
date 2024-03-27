@@ -1,5 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Plus%20Jakarta%20Sans:700|Urbanist:400');
-
+.container {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
 .card {
     padding: 50px 20px;
     background: #fff;
@@ -11,12 +14,9 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    gap: 45px;
+    gap: 16px;
   }
   
   .title {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    color: black;
-    font-weight: 700;
-    width: 270px;
+    width: 13vw;
   }
