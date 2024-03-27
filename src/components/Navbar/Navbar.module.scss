@@ -1,8 +1,14 @@
 .wrapper {
-.navbar {
-    background-color: #F9FAFD;
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    background-color: #f9fafdd3;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     padding: 16px 8vw;
+    backdrop-filter: blur(10px);
     .toolbar {
       display: flex;
       justify-content: space-between;
