@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Plus%20Jakarta%20Sans:700|Urbanist:400');
+
+.card {
+    padding: 50px 20px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    border-radius: 5px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 45px;
+  }
+  
+  .title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: black;
+    font-weight: 700;
+    width: 270px;
+  }

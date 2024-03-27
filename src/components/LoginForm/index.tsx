@@ -8,6 +8,7 @@ import {
   IconButton,
   Link as MuiLink,
   TextField,
+  Divider,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import styles from "./LoginForm.module.scss";
@@ -32,7 +33,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegisterClick }) => {
         <Typography variant="h4" className={styles.title}>
           Login
         </Typography>
-
+        <Divider sx={{ marginBottom: "32px" }} />
         <Formik
           initialValues={{ email: "", password: "" }}
           validationSchema={loginValidationSchema}
