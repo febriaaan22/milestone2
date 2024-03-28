@@ -23,6 +23,10 @@ const Threads = sequelize.define("threads",{
         type: DataTypes.INTEGER,
         allowNull: false
     },
+    thread_date: {
+        type: DataTypes.DATE,
+        allowNull: false,
+    },
     thread_desc: {
         type: DataTypes.TEXT,
         allowNull: false,
