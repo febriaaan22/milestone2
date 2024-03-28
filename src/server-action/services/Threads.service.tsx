@@ -13,14 +13,14 @@ import ErrorHandler from "../utils/ErrorHandler";
 const postingThread = async ({
   threadTitle,
   category,
-  user_id,
+  userId,
   threadDesc,
 }: inputThreads) => {
   try {
     const Posting = await PostThread({
       threadTitle,
       category,
-      user_id,
+      userId,
       threadDesc,
     });
     return {
