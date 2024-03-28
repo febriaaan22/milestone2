@@ -9,13 +9,29 @@ import {
   DeleteComment as inputDeleteComment,
 } from "../types/Comment.type";
 import ErrorHandler from "../utils/ErrorHandler";
+import Users from "@/models/Users.model";
+import Threads from "@/models/Threads.model";
 const Comment = async ({ comment, threadId, userId }: inputComment) => {
   try {
+    const findUsername = await Users.findOne({
+      where: { user_id: userId },
+      attributes: ["user_name"],
+    });
+    const username = findUsername?.getDataValue("user_name") as string;
+    const findThread = await Threads.findOne({
+      where: { thread_id: threadId },
+      attributes: ["thread_title"],
+    });
+    const threadTitle = findThread?.getDataValue("thread_title") as string;
     const CommentThread = await PostComment({ comment, threadId, userId });
     return {
       status: 200,
       message: "Success Comment Thread",
-      data: CommentThread,
+      data: {
+        titleThread: threadTitle,
+        comment: CommentThread,
+        commentator: username,
+      },
     };
   } catch (err: any) {
     throw new ErrorHandler({
