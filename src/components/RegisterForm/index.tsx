@@ -8,6 +8,7 @@ import {
   Link as MuiLink,
   InputAdornment,
   IconButton,
+  Divider,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import styles from "./RegisterForm.module.scss";
@@ -31,11 +32,12 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onLoginClick }) => {
   };
 
   return (
-    <Box sx={{ display: "flex", justifyContent: "center", marginTop: "3vw" }}>
+    <Box sx={{ display: "flex", justifyContent: "center", marginTop: "7vw" }}>
       <Paper elevation={0} className={styles.wrapper}>
         <Typography variant="h4" className={styles.title}>
           Register
         </Typography>
+        <Divider sx={{ marginBottom: "32px" }} />
         <Formik
           initialValues={{
             name: "",
