@@ -11,6 +11,7 @@ import {
 import ErrorHandler from "../utils/ErrorHandler";
 import Users from "@/models/Users.model";
 import Threads from "@/models/Threads.model";
+import Comments from "@/models/Comments.model";
 const Comment = async ({ comment, threadId, userId }: inputComment) => {
   try {
     const findUsername = await Users.findOne({
@@ -60,10 +61,13 @@ const GetAllComment = async ({ threadId }: getcomment) => {
 const EditComment = async ({ comment, commentId }: inputEditingComment) => {
   try {
     const editComment = await Editing({ comment, commentId });
+    const newComment = await Comments.findOne({
+      where: { comment_id: commentId },
+    });
     return {
       status: 200,
       message: "Success Edited Comment",
-      data: editComment,
+      data: { count: editComment, comment: newComment },
     };
   } catch (err: any) {
     throw new ErrorHandler({
