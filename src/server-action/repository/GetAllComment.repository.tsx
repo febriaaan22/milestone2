@@ -4,7 +4,7 @@ export const GetAllComment = async ({ threadId }: GetAllCommentbyThreadId) => {
     try{
       const getAllCommentbyThreadid = await Comments.findAll({
         where: {
-          thread_id: threadId,
+          threads_id: threadId,
         },
       });
       return getAllCommentbyThreadid
