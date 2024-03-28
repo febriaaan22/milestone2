@@ -14,7 +14,7 @@ const Comments = sequelize.define("comments", {
     type: DataTypes.TEXT,
     allowNull: false,
   },
-  thread_id: {
+  threads_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
@@ -22,9 +22,13 @@ const Comments = sequelize.define("comments", {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
+  comment_date: {
+    type: DataTypes.DATE,
+    allowNull: false,
+  }
 });
 Comments.belongsTo(Threads,{
-    foreignKey: "thread_id",
+    foreignKey: "threads_id",
     targetKey: "thread_id",
 });
 Comments.belongsTo(Users,{
