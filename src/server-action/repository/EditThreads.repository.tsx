@@ -15,9 +15,9 @@ export const EditThreads = async ({
       },
       attributes: ["category_id"],
     });
-    const category_id = findCategoryId?.getDataValue("category_id") as number;
+    const categoryId = findCategoryId?.getDataValue("category_id") as number;
     const editingThread = await Threads.update(
-      { thread_title: threadTitle, category_id, thread_desc: threadDesc },
+      { thread_title: threadTitle, categoryId, thread_desc: threadDesc },
       { where: { thread_id: threadId } }
     );
     return editingThread;
