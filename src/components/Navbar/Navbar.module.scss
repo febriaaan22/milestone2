@@ -35,6 +35,9 @@
         &:hover {
           color: darken(#333, 10%);
         }
+        &.activeLink {
+          color: #78ceb4;
+        }
       }
     }
     .buttonGroup {
