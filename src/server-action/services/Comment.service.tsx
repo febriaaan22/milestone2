@@ -63,6 +63,16 @@ const EditComment = async ({ comment, commentId }: inputEditingComment) => {
     const editComment = await Editing({ comment, commentId });
     const newComment = await Comments.findOne({
       where: { comment_id: commentId },
+      include: [
+        {
+          model: Threads,
+          attributes: ["thread_title"],
+        },
+        {
+          model: Users,
+          attributes: ["user_name"],
+        },
+      ],
     });
     return {
       status: 200,
