@@ -1,12 +1,12 @@
 interface RegisterInput {
-    user_email: string;
-    user_name: string;
-    user_pass: string;
+    email: string;
+    username: string;
+    password: string;
   }
   
   interface LoginInput {
-      user_email: string;
-      user_pass: string;
+      email: string;
+      password: string;
   }
   
   export type { RegisterInput, LoginInput };

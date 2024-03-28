@@ -6,12 +6,12 @@ import { RegisterInput, LoginInput } from "../types/Auth.type";
 import { getUserAccount, getUserEmail } from "../repository/Auth.repository";
 
 const registerService = async ({
-	user_email,
-	user_name,
-	user_pass,
+	email,
+	username,
+	password,
 }: RegisterInput) => {
 	try {
-		const existEmail = await getUserEmail(user_email);
+		const existEmail = await getUserEmail(email);
 		if (existEmail) {
 			throw new ErrorHandler({
 				success: false,
@@ -20,11 +20,14 @@ const registerService = async ({
 					"The provided email is already registered. Please use a different email address.",
 			});
 		}
-		const hashedPassword = await bcrypt.hash(user_pass, 10);
+		const hashedPassword = await bcrypt.hash(password, 10);
+		const userRole = "user";
+		// console.log(hashedPassword, email, user)
 		const newUser = await Users.create({
-			user_email,
-			user_name,
+			user_name: username,
+			user_email: email,
 			user_pass: hashedPassword,
+			user_role: userRole,
 		});
 		return {
 			status: 200,
@@ -40,16 +43,16 @@ const registerService = async ({
 	}
 };
 
-const loginService = async ({ user_email, user_pass }: LoginInput) => {
-	console.log(user_email, user_pass);
+const loginService = async ({ email, password }: LoginInput) => {
+	console.log(email, password);
 	try {
-		const user = await getUserAccount(user_email);
+		const user = await getUserAccount(email);
 		console.log(user?.dataValues.user_pass);
 		const JWT_SIGN = "310324";
 
 		if (user) {
 			const isPasswordCorrect: boolean = await bcrypt.compare(
-				user_pass,
+				password,
 				user?.dataValues.user_pass
 			);
 

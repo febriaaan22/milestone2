@@ -1,9 +1,9 @@
 import Users from "@/models/Users.model";
 import { Model } from "sequelize";
 
-export const getUserEmail = async (user_email: string) => {
+export const getUserEmail = async (email: string) => {
 	const existEmail = await Users.findOne({
-		where: { user_email },
+		where: { user_email: email },
 	});
 
 	return existEmail;
