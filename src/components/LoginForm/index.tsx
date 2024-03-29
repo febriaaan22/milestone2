@@ -18,9 +18,14 @@ import { loginValidationSchema } from "../utils/ValidationSchema";
 interface LoginFormProps {
   onLogin: (values: { email: string; password: string }) => void;
   onRegisterClick: () => void;
+  isLoading: boolean;
 }
 
-const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegisterClick }) => {
+const LoginForm: React.FC<LoginFormProps> = ({
+  onLogin,
+  onRegisterClick,
+  isLoading,
+}) => {
   const [showPassword, setShowPassword] = React.useState(false);
 
   const togglePasswordVisibility = () => {
@@ -38,8 +43,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegisterClick }) => {
           initialValues={{ email: "", password: "" }}
           validationSchema={loginValidationSchema}
           onSubmit={(values, { setSubmitting }) => {
-            // onSubmit logic here
-            console.log(values);
+            onLogin(values);
             setSubmitting(false);
           }}
         >
@@ -84,7 +88,12 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLogin, onRegisterClick }) => {
                 }}
               />
               <Box sx={{ margin: "32px 0" }}>
-                <PrimaryButton type="submit" text="Login" fullWidth />
+                <PrimaryButton
+                  type="submit"
+                  text="Login"
+                  fullWidth
+                  isLoading={isLoading}
+                />
               </Box>
             </Form>
           )}
