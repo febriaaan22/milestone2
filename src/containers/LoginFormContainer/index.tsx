@@ -1,14 +1,14 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
-
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import LoginForm from "@/components/LoginForm";
+import { useUserContext } from "@/contexts/UserContext";
 import axios from "axios";
 import { Snackbar } from "@mui/material";
 import Alert, { AlertColor } from "@mui/material/Alert";
 
 const LoginFormContainer: React.FC = () => {
   const router = useRouter();
+  const { setUser } = useUserContext();
   const [isLoading, setIsLoading] = useState(false);
   const [snackbar, setSnackbar] = useState({
     open: false,
@@ -20,36 +20,49 @@ const LoginFormContainer: React.FC = () => {
     router.push("/register");
   };
 
-  const handleLogin = async (values: { email: string; password: string }) => {
-    setIsLoading(true);
-    try {
-      const response = await axios.post("/api/auth/login", values);
+  const handleLogin = (values: { email: string; password: string }) => {
+    const performLogin = async () => {
+      setIsLoading(true);
+      try {
+        const response = await axios.post("/api/auth/login", values);
 
-      if (response.data.success && response.data.status === 200) {
-        setSnackbar({
-          open: true,
-          message: "Login successful",
-          severity: "success",
-        });
-        router.push("/");
-      } else {
-        setSnackbar({
-          open: true,
-          message: response.data.message || "Login failed: Unknown error",
-          severity: "error",
-        });
+        if (response.data.success && response.data.status === 200) {
+          const userInfo = {
+            name: response.data.data.user_name,
+            email: response.data.data.user_email,
+          };
+          setUser(userInfo); // Set user context
+          sessionStorage.setItem("userInfo", JSON.stringify(userInfo));
+
+          setSnackbar({
+            open: true,
+            message: "Login successful",
+            severity: "success",
+          });
+          router.push("/");
+        } else {
+          setSnackbar({
+            open: true,
+            message: response.data.message || "Login failed: Unknown error",
+            severity: "error",
+          });
+        }
+      } catch (error) {
+        let message = "Login failed";
+        if (axios.isAxiosError(error) && error.response) {
+          message += `: ${error.response.data?.message || error.response.status}`;
+        } else {
+          message += ": Network error or server is down";
+        }
+        setSnackbar({ open: true, message, severity: "error" });
+      } finally {
+        setIsLoading(false);
       }
-    } catch (error) {
-      let message = "Login failed";
-      if (axios.isAxiosError(error) && error.response) {
-        message += `: ${error.response.data?.message || error.response.status}`;
-      } else {
-        message += ": Network error or server is down";
-      }
-      setSnackbar({ open: true, message, severity: "error" });
-    } finally {
-      setIsLoading(false);
-    }
+    };
+
+    performLogin().catch((error) => {
+      console.error("Failed to perform login", error);
+    });
   };
 
   const handleCloseSnackbar = (
