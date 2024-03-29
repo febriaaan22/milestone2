@@ -1,7 +1,7 @@
 export interface PostThreads{
     threadTitle: string;
     category: string;
-    user_id: number;
+    userId: number;
     threadDesc: Text;
 }
 export interface EditThreads{

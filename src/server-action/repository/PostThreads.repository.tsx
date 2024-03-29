@@ -5,7 +5,7 @@ import { PostThreads as inputThreads } from "../types/threads.type";
 export const PostThread = async ({
   threadTitle,
   category,
-  user_id,
+  userId,
   threadDesc,
 }: inputThreads) => {
   try {
@@ -15,11 +15,13 @@ export const PostThread = async ({
         },
         attributes: ["category_id"]
     })
-    const category_id = findCategoryId?.getDataValue("category_id") as number;
+    const categoryId = findCategoryId?.getDataValue("category_id") as number;
+    const threadDate = new Date();
     const postingThread = await Threads.create({
       thread_title: threadTitle,
-      category_id,
-      user_id,
+      category_id: categoryId,
+      user_id: userId,
+      thread_date: threadDate,
       thread_desc: threadDesc,
     });
     return postingThread;
