@@ -19,7 +19,7 @@ const WhatIsSeren: React.FC = () => {
         </Typography>
       </Box>
       <Box className={styles.rightItem}>
-        <Typography variant="body1" sx={{ mb: 2 }}>
+        <Typography sx={{ fontSize: "1.5rem", mb: 2 }} variant="body1">
           At Seren, we understand the complexities of mental health and the
           challenges individuals face. Our platform is dedicated to providing
           support, resources, and a safe space for those navigating mental
