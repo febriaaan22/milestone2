@@ -1,0 +1,128 @@
+.container {
+    display: flex;
+    padding: 20vh 8vw;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.flexContainer {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.leftSide,
+.rightSide {
+    display: flex;
+    flex-direction: column;
+}
+
+.headline {
+    margin-bottom: 1rem;
+    max-width: 35vw;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+}
+
+.imageContainer {
+    position: relative;
+    width: 100%;
+}
+
+.imageItem {
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.imageItemBottom {
+    display: flex;
+    flex-direction: row;
+}
+
+.imageBottomLeft {
+    flex: 2;
+    padding-right: 15px;
+}
+
+.imageBottomRight {
+    flex: 1;
+    padding-left: 15px;
+}
+
+.rightSide {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.typographyContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.imageOverlayContainer {
+    flex: 8;
+    position: relative;
+}
+
+.overlayButton {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    background-color: #f9fafd;
+    color: #2e2e2e;
+    border-color: none;
+    text-transform: none;
+    padding: 10px 35px;
+    font-weight: 700;
+}
+
+.bottomImage {
+    border-radius: 8px;
+    position: relative;
+}
+
+.imageOverlayContainer {
+    position: relative;
+}
+
+
+
+@media (min-width: 600px) {
+    .flexContainer {
+        align-items: stretch;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    .leftSide,
+    .rightSide {
+        padding: 10px;
+    }
+
+    .imageBottomLeft,
+    .imageBottomRight {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .headline,
+    .subtitle {
+        max-width: 100%;
+    }
+
+    .overlayButton {
+        padding: 8px 16px;
+        font-size: 0.875rem;
+    }
+}

@@ -1,0 +1,37 @@
+.stayInformedContainer {
+    background-color: transparent;
+    padding: 15vh 8vw;
+    text-align: center;
+  
+    .header {
+      margin-bottom: 1rem;
+    }
+  
+    .subheader {
+      margin-bottom: 4rem;
+    }
+  
+    .gridContainer {
+      justify-content: center;
+    }
+  
+    .card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+      border-radius: 8px;
+      padding: 1rem;
+      min-height: 25vh;
+    }
+  
+    .cardContent {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+    
+  }
+  
+  
