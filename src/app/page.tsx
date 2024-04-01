@@ -1,11 +1,7 @@
 "use client";
-import { HeroSection, Navbar } from "@/components";
+
+import { HomeContainer } from "@/containers";
 
 export default function Home() {
-  return (
-    <>
-      <Navbar />
-      <HeroSection />
-    </>
-  );
+  return <HomeContainer />;
 }
