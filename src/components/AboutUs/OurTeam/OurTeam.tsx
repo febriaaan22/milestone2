@@ -7,9 +7,9 @@ const TeamContainer = styled("div")({
   alignItems: "center",
   justifyContent: "center",
   backgroundColor: "#f9fafd",
-  width: "1438px",
+  width: "100vw",
   height: "1262px",
-  margin: "0 20px 20px",
+  margin: "0",
 });
 
 const TeamTitle = styled(Typography)({
@@ -27,7 +27,7 @@ const TeamJob = styled(Typography)({
   color: "#A6D487",
   fontSize: "16px",
   textAlign: "center",
-  marginBottom: "10px", 
+  marginBottom: "10px",
   fontWeight: "bold",
 });
 
@@ -35,14 +35,14 @@ const TeamName = styled(Typography)({
   fontSize: "21px",
   textAlign: "center",
   fontWeight: "bold",
-  marginBottom:"40px"
+  marginBottom: "40px",
 });
 
 const TeamImage = styled("img")({
   width: "200px",
   height: "200px",
   objectFit: "cover",
-  marginLeft:"60px"
+  marginLeft: "60px",
 });
 
 const OurTeam = () => {
