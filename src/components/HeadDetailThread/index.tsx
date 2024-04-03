@@ -1,7 +1,7 @@
 import React from "react";
 import { Box, Typography, Divider } from "@mui/material";
 import styles from "./HeadDetailThread.module.scss";
-import { BreadCrumbs, CommentCard } from "..";
+import { BreadCrumbs } from "..";
 
 const HeadDetailThread: React.FC = () => {
   return (
@@ -41,7 +41,7 @@ const HeadDetailThread: React.FC = () => {
         <Typography className={styles.answer} variant="body1">
           Answers
         </Typography>
-        <CommentCard />
+        {/* <CommentCard /> */}
       </Box>
     </>
   );
