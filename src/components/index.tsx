@@ -13,3 +13,4 @@ export { default as HeadDetailThread } from "./HeadDetailThread";
 export { default as CommentCard } from "./CommentCard";
 export { default as DividerTotalAnswer } from "./DividerTotalAnswer";
 export { default as CommentForm } from "./CommentForm";
+export { default as CTAStartDiscussion } from "./CTAStartDiscussion";

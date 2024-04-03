@@ -5,6 +5,7 @@ import {
   Navbar,
   DividerTotalAnswer,
   CommentForm,
+  CTAStartDiscussion,
 } from "@/components";
 import { Box } from "@mui/material";
 import Footer from "@/components/Footer";
@@ -19,6 +20,7 @@ const DetailThreadContainer: React.FC = () => {
         <DividerTotalAnswer />
         <CommentForm />
       </Box>
+      <CTAStartDiscussion />
       <Footer />
     </>
   );

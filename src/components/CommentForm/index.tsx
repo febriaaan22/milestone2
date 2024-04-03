@@ -9,7 +9,7 @@ const CommentForm: React.FC = () => {
       <Box className={styles.container}>
         <Typography variant="h5">Ready to post your Answer?</Typography>
         <TextField
-          placeholder="Type your answer"
+          placeholder="Type your answer..."
           multiline
           rows={8}
           className={styles.form}
