@@ -4,8 +4,10 @@ import {
   CommentCard,
   Navbar,
   DividerTotalAnswer,
+  CommentForm,
 } from "@/components";
 import { Box } from "@mui/material";
+import Footer from "@/components/Footer";
 
 const DetailThreadContainer: React.FC = () => {
   return (
@@ -15,7 +17,9 @@ const DetailThreadContainer: React.FC = () => {
       <Box sx={{ padding: " 0 8vw" }}>
         <CommentCard />
         <DividerTotalAnswer />
+        <CommentForm />
       </Box>
+      <Footer />
     </>
   );
 };

@@ -12,3 +12,4 @@ export { default as BreadCrumbs } from "./BreadCrumbs";
 export { default as HeadDetailThread } from "./HeadDetailThread";
 export { default as CommentCard } from "./CommentCard";
 export { default as DividerTotalAnswer } from "./DividerTotalAnswer";
+export { default as CommentForm } from "./CommentForm";
