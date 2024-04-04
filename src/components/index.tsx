@@ -14,3 +14,7 @@ export { default as CommentCard } from "./CommentCard";
 export { default as DividerTotalAnswer } from "./DividerTotalAnswer";
 export { default as CommentForm } from "./CommentForm";
 export { default as CTAStartDiscussion } from "./CTAStartDiscussion";
+export { default as ProfileTabs } from "./ProfileTabs";
+export { default as EditProfileForm } from "./EditProfileForm";
+export { default as ChangePasswordForm } from "./ChangePasswordForm";
+export { default as ApplyAsCounselorForm } from "./ApplyAsCounselorForm";

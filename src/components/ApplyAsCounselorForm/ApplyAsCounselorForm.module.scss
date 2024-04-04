@@ -1,0 +1,21 @@
+.applyAsCounselorForm {
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .title {
+    margin-bottom: 2rem;
+}
+  
+  .wrapper{
+    background-color: transparent;
+    width: 50vw;
+    
+  }
+
+  .buttonContainer{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: end;
+  }
