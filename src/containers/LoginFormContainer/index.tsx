@@ -30,6 +30,7 @@ const LoginFormContainer: React.FC = () => {
           const userInfo = {
             name: response.data.data.user_name,
             email: response.data.data.user_email,
+            role: response.data.data.user_role,
           };
           setUser(userInfo); // Set user context
           sessionStorage.setItem("userInfo", JSON.stringify(userInfo));

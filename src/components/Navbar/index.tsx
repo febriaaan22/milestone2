@@ -50,6 +50,11 @@ const Navbar: React.FC = () => {
     setAnchorEl(null);
   };
 
+  const handleProfileClick = () => {
+    router.push("/my-profile");
+    handleClose();
+  };
+
   const handleLogout = () => {
     sessionStorage.removeItem("userInfo");
     setUser(null);
@@ -139,7 +144,7 @@ const Navbar: React.FC = () => {
                     },
                   }}
                 >
-                  <MenuItem onClick={handleClose}>
+                  <MenuItem onClick={handleProfileClick}>
                     <PersonIcon sx={{ marginRight: "16px" }} fontSize="small" />
                     Profile
                   </MenuItem>
