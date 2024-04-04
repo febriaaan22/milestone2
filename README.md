@@ -86,9 +86,9 @@ Respond success
 ```
 {
     "success": true,
-    "status" : 200,
-    "message" : "login successful",
-    "data" : {
+    "status": 200,
+    "message": "login successful",
+    "data": {
         "user_id": 1,
         "user_name": "example",
         "user_email": "example@mail.com",
@@ -99,11 +99,144 @@ Respond success
     }
 }
 ```
-if password false. that respond
+if password is false. that respond
 ```
 {
     "success": true,
     "status": 401,
     "message": "Password is incorrect"
+}
+```
+### Post Comment Thread
+[POST] /api/commentThread/:threadId/:userId
+
+Headers
+```
+{
+    "comment": "tescomment12345"
+}
+```
+Respond Success
+```
+{
+    "success": true,
+    "message": "Success Comment Thread",
+    "data": {
+        "status": 200,
+        "message": "Success Comment Thread",
+        "data": {
+            "titleThread": "testThread",
+            "comment": {
+                "comment_id": 4,
+                "comment_post": "tescomment12345",
+                "threads_id": 5,
+                "user_id": 2,
+                "comment_date": "2024-04-03T23:20:17.000Z",
+                "updatedAt": "2024-04-03T23:20:17.398Z",
+                "createdAt": "2024-04-03T23:20:17.398Z"
+            },
+            "commentator": "usertes1"
+        }
+    }
+}
+```
+### Get Comment Thread
+[GET] /api/getComment/:threadId
+
+Respond Success
+```
+{
+    "success": true,
+    "message": "Success get all Comments",
+    "data": {
+        "status": 200,
+        "message": "Success get all comment",
+        "data": [
+            {
+                "comment_id": 2,
+                "comment_post": "hello world",
+                "threads_id": 5,
+                "user_id": 2,
+                "comment_date": "2024-03-28T10:42:08.000Z",
+                "createdAt": "2024-03-28T10:42:07.862Z",
+                "updatedAt": "2024-03-28T15:06:54.132Z",
+                "thread": {
+                    "thread_title": "testThread"
+                },
+                "user": {
+                    "user_name": "usertes1"
+                }
+            },
+            {
+                "comment_id": 4,
+                "comment_post": "tescomment12345",
+                "threads_id": 5,
+                "user_id": 2,
+                "comment_date": "2024-04-03T23:20:17.000Z",
+                "createdAt": "2024-04-03T23:20:17.398Z",
+                "updatedAt": "2024-04-03T23:20:17.398Z",
+                "thread": {
+                    "thread_title": "testThread"
+                },
+                "user": {
+                    "user_name": "usertes1"
+                }
+            }
+        ]
+    }
+}
+```
+### PUT Comment Thread
+[PUT] /api/putComment/:commented
+
+Header
+```
+{"comment": "tes comment"}
+```
+
+Respond Success
+```
+{
+    "success": true,
+    "message": "Success edited Comment Thread",
+    "data": {
+        "status": 200,
+        "message": "Success Edited Comment",
+        "data": {
+            "count": [
+                1
+            ],
+            "comment": {
+                "comment_id": 4,
+                "comment_post": "tes comment",
+                "threads_id": 5,
+                "user_id": 2,
+                "comment_date": "2024-04-03T23:20:17.000Z",
+                "createdAt": "2024-04-03T23:20:17.398Z",
+                "updatedAt": "2024-04-03T23:28:09.836Z",
+                "thread": {
+                    "thread_title": "testThread"
+                },
+                "user": {
+                    "user_name": "usertes1"
+                }
+            }
+        }
+    }
+}
+```
+### Delete Comment Thread
+[DELETE] /api/deleteComment/:commentId
+
+Respond success
+```
+{
+    "success": true,
+    "message": "Success deleted Comment Thread",
+    "data": {
+        "status": 200,
+        "message": "Success Deleted Comment",
+        "data": 1
+    }
 }
 ```
