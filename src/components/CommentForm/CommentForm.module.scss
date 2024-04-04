@@ -1,0 +1,17 @@
+.container {
+    display : flex;
+    flex-direction: column;
+    margin-top: 5vh;
+    gap: 1rem;
+    margin-bottom: 20vh;
+}
+
+.form{
+    background-color:  #f9fafd;
+}
+
+.buttonGroup{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
