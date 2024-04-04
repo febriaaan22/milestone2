@@ -1,38 +1,11 @@
 import React, { useState } from "react";
-import { Button, Modal, Typography, styled, IconButton } from "@mui/material";
+import { Modal, Typography, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-
-const ModalContent = styled("div")({
-  position: "relative",
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  justifyContent: "center",
-  backgroundColor: "#f9fafd",
-  width: "687px",
-  height: "397px",
-  padding: "20px",
-  borderRadius: "8px",
-});
-
-const CloseButton = styled(IconButton)({
-  position: "absolute",
-  top: "10px",
-  left: "10px",
-});
-
-const ModalImage = styled("img")({
-  width: "100px",
-  height: "100px",
-  marginBottom: "26px",
-});
-
-const ModalButtonGroup = styled("div")({
-  display: "flex",
-  justifyContent: "center",
-  width: "100%",
-  marginTop: "26px",
-});
+import DeleteIcon from "@mui/icons-material/Delete";
+import axios from "axios";
+import PrimaryButton from "../button/primaryButton";
+import SecondaryButton from "../button/secondaryButton";
+import styles from "./ModalPopup.module.scss";
 
 const ModalPopup: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -45,11 +18,27 @@ const ModalPopup: React.FC = () => {
     setOpen(false);
   };
 
+  const handleDelete = async () => {
+    try {
+      await axios.delete("api-endpoint");
+      handleClose();
+    } catch (error) {
+      console.error("Error deleting:", error);
+      throw error;
+    }
+  };
+
+  const handleDeleteClick = () => {
+    handleDelete().catch((error) => {
+      console.error("Error:", error);
+    });
+  };
+
   return (
     <div>
-      <Button variant="contained" color="primary" onClick={handleOpen}>
-        Open Modal
-      </Button>
+      <IconButton aria-label="delete" onClick={handleOpen}>
+        <DeleteIcon />
+      </IconButton>
       <Modal
         open={open}
         onClose={handleClose}
@@ -60,34 +49,36 @@ const ModalPopup: React.FC = () => {
           alignItems: "center",
           justifyContent: "center",
         }}>
-        <ModalContent>
-          <CloseButton onClick={handleClose}>
-            <CloseIcon />
-          </CloseButton>
-          <ModalImage src="/icons/delete.png" alt="Modal Image" />
-          <Typography variant="h2" gutterBottom style={{ fontSize: "38px" }}>
-            Are You Sure?
-          </Typography>
-          <Typography variant="body2" color="textSecondary" gutterBottom>
-            You can't undo this
-          </Typography>
-          <ModalButtonGroup>
-            <Button
-              variant="outlined"
-              style={{ color: "#5C6059", borderColor: "#5C6059" }}
-              onClick={handleClose}>
-              Cancel
-            </Button>
-            <div style={{ width: "16px" }}></div>
-            <Button
-              variant="contained"
-              color="secondary"
-              onClick={handleClose}
-              style={{ backgroundColor: "#A6D487", color: "#F6FBF3" }}>
-              Delete
-            </Button>
-          </ModalButtonGroup>
-        </ModalContent>
+        <div className={styles.modalWrapper}>
+            <div className={styles.modalContent}>
+              <IconButton className={styles.closeButton} onClick={handleClose}>
+                <CloseIcon />
+              </IconButton>
+              <img
+                src="/icons/delete.png"
+                alt="Modal"
+                className={styles.modalImage}
+              />
+              <Typography
+                variant="h2"
+                gutterBottom
+                style={{ fontSize: "38px" }}>
+                Are You Sure?
+              </Typography>
+              <Typography variant="body2" color="textSecondary" gutterBottom>
+                You can't undo this
+              </Typography>
+              <div className={styles.modalButtonGroup}>
+                <SecondaryButton text="Cancel" onClick={handleClose} />
+                <div style={{ width: "16px" }}></div>
+                <PrimaryButton
+                  text="Delete"
+                  onClick={handleDeleteClick}
+                  isLoading={false}
+                />
+              </div>
+            </div>
+        </div>
       </Modal>
     </div>
   );
