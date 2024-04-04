@@ -2,10 +2,10 @@ import React from "react";
 import Button from "@mui/material/Button";
 import styles from "./SecondaryButton.module.scss";
 
-type SecondaryButtonProps = {
+interface SecondaryButtonProps {
   text: string;
   onClick?: () => void;
-};
+}
 
 const SecondaryButton: React.FC<SecondaryButtonProps> = ({
   text,
