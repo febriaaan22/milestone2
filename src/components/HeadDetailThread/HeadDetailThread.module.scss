@@ -1,0 +1,37 @@
+.container {
+    padding: 5vh 8vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+.subSection{
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+}
+
+.rightSection, .leftSection{
+    display: flex;
+    gap: 8px;
+    margin-top: 1rem;
+    align-items: flex-end;
+}
+
+.userName{
+    font-weight: 700;
+}
+
+.category{
+    font-weight: 700;
+}
+
+.questionData{
+    margin-top: 1rem;
+}
+
+.answer{
+    font-weight: 700 ;
+    font-size: 18px;
+}

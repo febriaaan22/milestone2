@@ -32,3 +32,38 @@ export const registerValidationSchema = Yup.object().shape({
     .oneOf([Yup.ref("password"), undefined], "Passwords must match")
     .required("Confirming password is required"),
 });
+
+export const changePasswordValidationSchema = Yup.object().shape({
+  oldPassword: Yup.string()
+    .min(8, "Old password must be at least 8 characters long.")
+    .required("Old password is required"),
+  newPassword: Yup.string()
+    .min(8, "New password must be at least 8 characters long.")
+    .matches(
+      /^(?=.*[a-z])/,
+      "New password must contain at least one lowercase letter."
+    )
+    .matches(
+      /^(?=.*[A-Z])/,
+      "New password must contain at least one uppercase letter."
+    )
+    .matches(/^(?=.*[0-9])/, "New password must contain at least one number.")
+    .notOneOf(
+      [Yup.ref("oldPassword")],
+      "New password must be different from the old password."
+    )
+    .required("New password is required"),
+  confirmPassword: Yup.string()
+    .oneOf([Yup.ref("newPassword"), undefined], "Passwords must match")
+    .required("Confirming new password is required"),
+});
+
+export const applyAsCounselorValidationSchema = Yup.object({
+  fullName: Yup.string().required("Full name is required"),
+  strNumber: Yup.string().required("STR Number is required"),
+  specialization: Yup.string().required("Specialization is required"),
+  yearsOfExperience: Yup.number()
+    .typeError("You must enter a number")
+    .min(0, "Years of experience cannot be negative")
+    .required("Years of experience is required"),
+});

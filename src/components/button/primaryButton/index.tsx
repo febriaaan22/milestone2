@@ -1,5 +1,6 @@
 import React from "react";
 import Button from "@mui/material/Button";
+import CircularProgress from "@mui/material/CircularProgress";
 import styles from "./PrimaryButton.module.scss";
 
 interface PrimaryButtonProps {
@@ -7,6 +8,7 @@ interface PrimaryButtonProps {
   onClick?: () => void;
   fullWidth?: boolean;
   type?: "button" | "submit" | "reset";
+  isLoading?: boolean;
 }
 
 const PrimaryButton: React.FC<PrimaryButtonProps> = ({
@@ -14,6 +16,7 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   onClick,
   fullWidth = false,
   type = "button",
+  isLoading = false,
 }) => {
   return (
     <Button
@@ -23,8 +26,9 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
       onClick={onClick}
       fullWidth={fullWidth}
       type={type}
+      disabled={isLoading}
     >
-      {text}
+      {isLoading ? <CircularProgress size={24} color="inherit" /> : text}
     </Button>
   );
 };

@@ -14,12 +14,19 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import styles from "./RegisterForm.module.scss";
 import { registerValidationSchema } from "../utils/ValidationSchema";
 import { PrimaryButton } from "..";
+import { RegisterValues } from "@/containers/RegisterFormContainer";
 
 interface RegisterFormProps {
   onLoginClick: () => void;
+  onRegister: (values: RegisterValues) => Promise<void>;
+  isLoading: boolean;
 }
 
-const RegisterForm: React.FC<RegisterFormProps> = ({ onLoginClick }) => {
+const RegisterForm: React.FC<RegisterFormProps> = ({
+  onLoginClick,
+  onRegister,
+  isLoading,
+}) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
@@ -47,9 +54,15 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onLoginClick }) => {
           }}
           validationSchema={registerValidationSchema}
           onSubmit={(values, { setSubmitting }) => {
-            // Handle form submission
-            console.log(values);
-            setSubmitting(false);
+            void (async () => {
+              try {
+                await onRegister(values);
+              } catch (error) {
+                // handle error
+              } finally {
+                setSubmitting(isLoading);
+              }
+            })();
           }}
         >
           {({ errors, touched }) => (
@@ -135,7 +148,12 @@ const RegisterForm: React.FC<RegisterFormProps> = ({ onLoginClick }) => {
                 }}
               />
               <Box sx={{ margin: "32px 0" }}>
-                <PrimaryButton text="Register" type="submit" fullWidth />
+                <PrimaryButton
+                  text="Register"
+                  type="submit"
+                  fullWidth
+                  isLoading={isLoading}
+                />
               </Box>
             </Form>
           )}

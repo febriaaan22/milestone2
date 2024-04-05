@@ -1,0 +1,35 @@
+.container {
+  margin-bottom: -10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  padding: 8vw 6vw 0vw 6vw;
+  text-align: center;
+  justify-content: space-between;      
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+    padding: 50px 20px;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    border-radius: 5px;
+    width: 40vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    gap: 16px;
+  }
+  
+  .title {
+    width: 26vw;
+  }

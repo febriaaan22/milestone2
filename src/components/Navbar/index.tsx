@@ -9,29 +9,23 @@ import {
   MenuItem,
   Button,
   Divider,
+  CircularProgress,
 } from "@mui/material";
+import { LocalPoliceOutlined, PsychologyOutlined } from "@mui/icons-material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import PersonIcon from "@mui/icons-material/Person";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import styles from "./Navbar.module.scss";
 import { PrimaryButton, SecondaryButton } from "..";
-
-interface User {
-  name: string;
-}
+import { useUserContext } from "@/contexts/UserContext";
 
 const Navbar: React.FC = () => {
   const router = useRouter();
   const [currentPath, setCurrentPath] = useState("");
-  const [user, setUser] = useState<User | null>(null);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const { user, setUser, isLoading } = useUserContext();
 
   useEffect(() => {
-    // Example logic to determine if a user is logged in
-    // Replace with your actual login logic
-    const loggedInUser = { name: "John Doe" }; // Simulated logged in user
-    // setUser(loggedInUser);
-
     if (typeof window !== "undefined") {
       setCurrentPath(window.location.pathname);
     }
@@ -55,6 +49,19 @@ const Navbar: React.FC = () => {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleProfileClick = () => {
+    router.push("/my-profile");
+    handleClose();
+  };
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("userInfo");
+    setUser(null);
+    // logout logic goes here, like clearing tokens, etc.
+    router.push("/");
+    handleClose();
   };
 
   return (
@@ -104,7 +111,9 @@ const Navbar: React.FC = () => {
             </Link>
           </Box>
           <Box className={styles.buttonGroup}>
-            {user ? (
+            {isLoading ? (
+              <CircularProgress size={24} />
+            ) : user ? (
               <>
                 <Button
                   className={styles.menuButton}
@@ -112,6 +121,12 @@ const Navbar: React.FC = () => {
                   endIcon={<KeyboardArrowDownIcon />}
                   color="inherit"
                 >
+                  {user.role === "admin" && (
+                    <LocalPoliceOutlined sx={{ marginRight: "8px" }} />
+                  )}
+                  {user.role === "counselor" && (
+                    <PsychologyOutlined sx={{ marginRight: "8px" }} />
+                  )}
                   {user.name}
                 </Button>
                 <Menu
@@ -136,12 +151,12 @@ const Navbar: React.FC = () => {
                     },
                   }}
                 >
-                  <MenuItem onClick={handleClose}>
+                  <MenuItem onClick={handleProfileClick}>
                     <PersonIcon sx={{ marginRight: "16px" }} fontSize="small" />
                     Profile
                   </MenuItem>
                   <Divider />
-                  <MenuItem onClick={handleClose}>
+                  <MenuItem onClick={handleLogout}>
                     <ExitToAppIcon
                       sx={{ marginRight: "16px" }}
                       fontSize="small"

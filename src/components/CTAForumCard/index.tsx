@@ -14,7 +14,7 @@ const CTAForumCard: React.FC = () => {
   return (
     <Box className={styles.container}>
       <Card className={styles.card}>
-        <Typography variant="h5" component="h2" className={styles.title}>
+        <Typography variant="h3" className={styles.title}>
           Find What You Are Looking For
         </Typography>
         <PrimaryButton text="Go To Forum" onClick={goToForum} />
