@@ -5,6 +5,7 @@ import { ApplyAsCounselorForm } from "@/components";
 const steps = ["Send Request", "Waiting Admin to Accept", "Accepted by Admin"];
 
 const ApplyAsCounselorContainer: React.FC = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [activeStep, setActiveStep] = useState(0); // Initialize activeStep state here
 
   const handleSubmit = (values: any) => {

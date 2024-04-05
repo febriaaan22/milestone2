@@ -29,6 +29,7 @@ const LoginFormContainer: React.FC = () => {
         if (response.data.success && response.data.status === 200) {
           const userInfo = {
             name: response.data.data.user_name,
+            id: response.data.data.user_id,
             email: response.data.data.user_email,
             role: response.data.data.user_role,
           };
