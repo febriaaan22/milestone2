@@ -1,45 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Seren : Mental Health Forum and Consultation
 
-## Getting Started
+## Overview
 
-First, run the development server:
+Seren is a platform dedicated to fostering awareness and support for mental health. Recognizing the critical importance of mental well-being, Seren offers a space for those seeking understanding, assistance, and community support. This application merges a community-driven forum with professional consultation services, creating a comprehensive environment for mental health care and discussions.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Mental Health Forum
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Community Engagement**: A safe, moderated space where users can share experiences, insights, and seek advice on a range of mental health topics.
+- **Topic Categories**: Organized sections for various mental health issues, ensuring easy navigation and relevant discussions.
+- **Anonymity Option**: Users can opt to post anonymously, encouraging open and stigma-free communication.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Professional Consultation
 
-## Learn More
+- **Access to Experts**: Connect with certified mental health professionals for personalized consultations.
+- **Scheduled Sessions**: Book sessions at your convenience, accommodating various time zones.
+- **Confidential and Secure**: Adherence to strict standards of privacy and security, ensuring all sessions are confidential.
 
-To learn more about Next.js, take a look at the following resources:
+### Support and Resources
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Educational Materials**: Articles, guides, and resources to inform users about mental health.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Mission and Vision
 
-## Deploy on Vercel
+Our mission at Seren is to demystify mental health and eliminate barriers to seeking help. We envision a world where mental health is openly discussed and addressed with the same vigor as physical health. Seren aims to cultivate a supportive community and provide easy access to professional help for those in need.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Getting Involved
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- **Join the Forum**: Participate in discussions, share your journey, or offer support.
+- **Book a Consultation**: Schedule a session with our professionals for tailored guidance.
+- **Volunteer**: Mental health professionals and enthusiasts are invited to contribute to our mission.
+
+---
 
 ## API Seren
+
 ### Register
+
 [POST] /api/auth/registration
 
 Headers
+
 ```
 {
     "email": "example@mail.com",
@@ -47,7 +49,9 @@ Headers
     "password": "password12345"
 }
 ```
+
 Respond success
+
 ```
 {
     "success": true,
@@ -64,7 +68,9 @@ Respond success
     }
 }
 ```
+
 if email already taken. that respond
+
 ```
 {
     "success": false,
@@ -72,17 +78,22 @@ if email already taken. that respond
     "message": "The provided email is already registered. Please use a different email address."
 }
 ```
+
 ### Login
+
 [POST] /api/auth/login
 
 Headers
+
 ```
 {
  "email": "example@mail.com",
  "password": "password"
  }
 ```
+
 Respond success
+
 ```
 {
     "success": true,
@@ -99,7 +110,9 @@ Respond success
     }
 }
 ```
+
 if password is false. that respond
+
 ```
 {
     "success": true,
@@ -107,16 +120,21 @@ if password is false. that respond
     "message": "Password is incorrect"
 }
 ```
+
 ### Post Comment Thread
+
 [POST] /api/commentThread/:threadId/:userId
 
 Headers
+
 ```
 {
     "comment": "tescomment12345"
 }
 ```
+
 Respond Success
+
 ```
 {
     "success": true,
@@ -140,10 +158,13 @@ Respond Success
     }
 }
 ```
+
 ### Get Comment Thread
+
 [GET] /api/getComment/:threadId
 
 Respond Success
+
 ```
 {
     "success": true,
@@ -186,15 +207,19 @@ Respond Success
     }
 }
 ```
+
 ### PUT Comment Thread
+
 [PUT] /api/putComment/:commented
 
 Header
+
 ```
 {"comment": "tes comment"}
 ```
 
 Respond Success
+
 ```
 {
     "success": true,
@@ -225,10 +250,13 @@ Respond Success
     }
 }
 ```
+
 ### Delete Comment Thread
+
 [DELETE] /api/deleteComment/:commentId
 
 Respond success
+
 ```
 {
     "success": true,
