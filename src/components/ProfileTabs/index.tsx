@@ -55,7 +55,7 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({ value, handleChange }) => {
           "& .MuiTab-root": {
             textTransform: "none",
             alignItems: "flex-start",
-            mr: 2,
+            mr: 0,
             fontSize: "1rem",
           },
           "& .Mui-selected": {
@@ -64,7 +64,7 @@ const ProfileTabs: React.FC<ProfileTabsProps> = ({ value, handleChange }) => {
           },
           backgroundColor: "#f9fafd",
           minHeight: "100vh",
-          padding: "2vh 3vw",
+          padding: "2vh 0 2vh 3vw",
         }}
       >
         <Tab label="Edit Profile" />
