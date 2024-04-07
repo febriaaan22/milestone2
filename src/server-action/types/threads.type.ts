@@ -14,5 +14,5 @@ export interface DeleteThreads{
     threadId: number;
 }
 export interface GetAllThreadsbyCategory{
-    category: string;
+    category: number;
 }
