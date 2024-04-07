@@ -1,10 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { postingThread } from "../services/Threads.service";
 
-export const postingThreadController = async (
-	req: NextRequest,
-	res: NextResponse
-) => {
+export const postingThreadController = async (req: NextRequest) => {
 	if (req.method === "POST") {
 		const body = await req.json();
 		try {
