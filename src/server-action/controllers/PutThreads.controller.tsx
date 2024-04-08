@@ -1,10 +1,7 @@
 import { NextResponse, NextRequest } from "next/server";
 import { editingThread } from "../services/Threads.service";
 
-export const editingThreadController = async (
-	req: NextRequest,
-	res: NextResponse
-) => {
+export const  editingThreadController = async (req: NextRequest) => {
 	if (req.method === "PUT") {
 		const body = await req.json();
 		try {
