@@ -4,3 +4,8 @@ export { default as Navbar } from "./Navbar";
 export { default as LoginForm } from "./LoginForm";
 export { default as RegisterForm } from "./RegisterForm";
 export { default as CTAForumCard } from "./CTAForumCard";
+export { default as MentalProblemsCard } from "./MentalProblemsCard";
+export { default as MentalProblemsGrid } from "./MentalProblemsGrid";
+export { default as InfoCard } from "./InfoCard";
+export { default as MentalProblemsArticle } from "./MentalProblemsArticle";
+export { default as Breadcrumbs } from "./Breadcrumbs";
