@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Modal, Typography, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import axios from "axios";
 import PrimaryButton from "../button/primaryButton";
 import SecondaryButton from "../button/secondaryButton";
 import styles from "./ModalDiscussion.module.scss";
+import { useNavigate } from "react-router-dom"; 
 
 const ModalDiscussion: React.FC = () => {
   const [open, setOpen] = useState(false);
-
+  const navigate = useNavigate(); 
   const handleOpen = () => {
     setOpen(true);
   };
@@ -17,20 +17,12 @@ const ModalDiscussion: React.FC = () => {
     setOpen(false);
   };
 
-  const handleDelete = async () => {
-    try {
-      await axios.delete("api-endpoint");
-      handleClose();
-    } catch (error) {
-      console.error("Error deleting:", error);
-      throw error;
-    }
+  const handleDeleteClick = () => {
+    navigate("/api/auth/login");
   };
 
-  const handleDeleteClick = () => {
-    handleDelete().catch((error) => {
-      console.error("Error:", error);
-    });
+  const handleRegisterClick = () => {
+    navigate("/api/auth/registration");
   };
 
   return (
@@ -66,7 +58,7 @@ const ModalDiscussion: React.FC = () => {
               Please Register or Login to start discussion
             </Typography>
             <div className={styles.modalButtonGroup}>
-              <SecondaryButton text="Register" onClick={handleClose} />
+              <SecondaryButton text="Register" onClick={handleRegisterClick} />
               <div style={{ width: "16px" }}></div>
               <PrimaryButton
                 text="Login"
