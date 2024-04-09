@@ -3,8 +3,8 @@ import { Modal, Typography, IconButton } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import DeleteIcon from "@mui/icons-material/Delete";
 import axios from "axios";
-import PrimaryButton from "../../button/primaryButton";
-import SecondaryButton from "../../button/secondaryButton";
+import PrimaryButton from "../button/primaryButton";
+import SecondaryButton from "../button/secondaryButton";
 import styles from "./DeleteModal.module.scss";
 
 const ModalPopup: React.FC = () => {
@@ -48,36 +48,34 @@ const ModalPopup: React.FC = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-        }}>
+        }}
+      >
         <div className={styles.modalWrapper}>
-            <div className={styles.modalContent}>
-              <IconButton className={styles.closeButton} onClick={handleClose}>
-                <CloseIcon />
-              </IconButton>
-              <img
-                src="/icons/delete.png"
-                alt="Modal"
-                className={styles.modalImage}
+          <div className={styles.modalContent}>
+            <IconButton className={styles.closeButton} onClick={handleClose}>
+              <CloseIcon />
+            </IconButton>
+            <img
+              src="/icons/delete.png"
+              alt="Modal"
+              className={styles.modalImage}
+            />
+            <Typography variant="h2" gutterBottom style={{ fontSize: "38px" }}>
+              Are You Sure?
+            </Typography>
+            <Typography variant="body2" color="textSecondary" gutterBottom>
+              You can't undo this
+            </Typography>
+            <div className={styles.modalButtonGroup}>
+              <SecondaryButton text="Cancel" onClick={handleClose} />
+              <div style={{ width: "16px" }}></div>
+              <PrimaryButton
+                text="Delete"
+                onClick={handleDeleteClick}
+                isLoading={false}
               />
-              <Typography
-                variant="h2"
-                gutterBottom
-                style={{ fontSize: "38px" }}>
-                Are You Sure?
-              </Typography>
-              <Typography variant="body2" color="textSecondary" gutterBottom>
-                You can't undo this
-              </Typography>
-              <div className={styles.modalButtonGroup}>
-                <SecondaryButton text="Cancel" onClick={handleClose} />
-                <div style={{ width: "16px" }}></div>
-                <PrimaryButton
-                  text="Delete"
-                  onClick={handleDeleteClick}
-                  isLoading={false}
-                />
-              </div>
             </div>
+          </div>
         </div>
       </Modal>
     </div>
