@@ -4,11 +4,11 @@ import CloseIcon from "@mui/icons-material/Close";
 import PrimaryButton from "../button/primaryButton";
 import SecondaryButton from "../button/secondaryButton";
 import styles from "./ModalDiscussion.module.scss";
-import { useNavigate } from "react-router-dom"; 
+import { useRouter } from "next/navigation";
 
 const ModalDiscussion: React.FC = () => {
   const [open, setOpen] = useState(false);
-  const navigate = useNavigate(); 
+  const router = useRouter();
   const handleOpen = () => {
     setOpen(true);
   };
@@ -17,12 +17,12 @@ const ModalDiscussion: React.FC = () => {
     setOpen(false);
   };
 
-  const handleDeleteClick = () => {
-    navigate("/api/auth/login");
+  const handleLoginClick = () => {
+    router.push("/login");
   };
 
   const handleRegisterClick = () => {
-    navigate("/api/auth/registration");
+    router.push("/register");
   };
 
   return (
@@ -40,7 +40,8 @@ const ModalDiscussion: React.FC = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-        }}>
+        }}
+      >
         <div className={styles.modalWrapper}>
           <div className={styles.modalContent}>
             <IconButton className={styles.closeButton} onClick={handleClose}>
@@ -62,7 +63,7 @@ const ModalDiscussion: React.FC = () => {
               <div style={{ width: "16px" }}></div>
               <PrimaryButton
                 text="Login"
-                onClick={handleDeleteClick}
+                onClick={handleLoginClick}
                 isLoading={false}
               />
             </div>
