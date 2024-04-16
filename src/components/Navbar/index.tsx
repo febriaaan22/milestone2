@@ -11,6 +11,7 @@ import {
   Divider,
   CircularProgress,
 } from "@mui/material";
+import { LocalPoliceOutlined, PsychologyOutlined } from "@mui/icons-material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import PersonIcon from "@mui/icons-material/Person";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
@@ -48,6 +49,11 @@ const Navbar: React.FC = () => {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleProfileClick = () => {
+    router.push("/my-profile");
+    handleClose();
   };
 
   const handleLogout = () => {
@@ -115,6 +121,12 @@ const Navbar: React.FC = () => {
                   endIcon={<KeyboardArrowDownIcon />}
                   color="inherit"
                 >
+                  {user.role === "admin" && (
+                    <LocalPoliceOutlined sx={{ marginRight: "8px" }} />
+                  )}
+                  {user.role === "counselor" && (
+                    <PsychologyOutlined sx={{ marginRight: "8px" }} />
+                  )}
                   {user.name}
                 </Button>
                 <Menu
@@ -139,7 +151,7 @@ const Navbar: React.FC = () => {
                     },
                   }}
                 >
-                  <MenuItem onClick={handleClose}>
+                  <MenuItem onClick={handleProfileClick}>
                     <PersonIcon sx={{ marginRight: "16px" }} fontSize="small" />
                     Profile
                   </MenuItem>

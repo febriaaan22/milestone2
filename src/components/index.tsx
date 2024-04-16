@@ -1,6 +1,7 @@
 export { default as PrimaryButton } from "./button/primaryButton";
 export { default as SecondaryButton } from "./button/secondaryButton";
 export { default as Navbar } from "./Navbar";
+export { default as Footer } from "./Footer";
 export { default as LoginForm } from "./LoginForm";
 export { default as RegisterForm } from "./RegisterForm";
 export { default as CTAForumCard } from "./CTAForumCard";
@@ -14,3 +15,7 @@ export { default as CommentCard } from "./CommentCard";
 export { default as DividerTotalAnswer } from "./DividerTotalAnswer";
 export { default as CommentForm } from "./CommentForm";
 export { default as CTAStartDiscussion } from "./CTAStartDiscussion";
+export { default as ProfileTabs } from "./ProfileTabs";
+export { default as EditProfileForm } from "./EditProfileForm";
+export { default as ChangePasswordForm } from "./ChangePasswordForm";
+export { default as ApplyAsCounselorForm } from "./ApplyAsCounselorForm";

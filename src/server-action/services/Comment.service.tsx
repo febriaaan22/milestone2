@@ -12,6 +12,7 @@ import ErrorHandler from "../utils/ErrorHandler";
 import Users from "@/models/Users.model";
 import Threads from "@/models/Threads.model";
 import Comments from "@/models/Comments.model";
+        
 const Comment = async ({ comment, threadId, userId }: inputComment) => {
   try {
     const findUsername = await Users.findOne({
