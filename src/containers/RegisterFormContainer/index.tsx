@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Snackbar, Alert, AlertColor } from "@mui/material";
@@ -43,8 +45,7 @@ const RegisterFormContainer: React.FC = () => {
       let errorMessage = "Registration failed";
       if (axios.isAxiosError(error) && error.response) {
         // Handle Axios error
-        errorMessage +=
-          ": " + (error.response.data?.message || "Unknown Axios error");
+        errorMessage += ": " + (error.response.data?.message || "Unknown Axios error");
       } else if (error instanceof Error) {
         // Handle generic error
         errorMessage += ": " + error.message;
@@ -66,21 +67,9 @@ const RegisterFormContainer: React.FC = () => {
 
   return (
     <>
-      <RegisterForm
-        onLoginClick={handleLoginClick}
-        onRegister={handleRegister}
-        isLoading={isLoading}
-      />
-      <Snackbar
-        open={snackbar.open}
-        autoHideDuration={6000}
-        onClose={handleCloseSnackbar}
-      >
-        <Alert
-          onClose={handleCloseSnackbar}
-          severity={snackbar.severity}
-          sx={{ width: "100%" }}
-        >
+      <RegisterForm onLoginClick={handleLoginClick} onRegister={handleRegister} isLoading={isLoading} />
+      <Snackbar open={snackbar.open} autoHideDuration={6000} onClose={handleCloseSnackbar}>
+        <Alert onClose={handleCloseSnackbar} severity={snackbar.severity} sx={{ width: "100%" }}>
           {snackbar.message}
         </Alert>
       </Snackbar>

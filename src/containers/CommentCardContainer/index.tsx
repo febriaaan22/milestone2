@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
 import { CommentCard } from "@/components";
 import { Box, Card, Skeleton } from "@mui/material";
@@ -66,18 +68,13 @@ const CommentsContainer: React.FC = () => {
   // Function to render Skeleton placeholders
   const renderSkeletons = () => {
     return Array.from(new Array(3)).map((_, index) => (
-      <Card variant="outlined" className={styles.card} key={index}>
+      <Card variant='outlined' className={styles.card} key={index}>
         <Box className={styles.container}>
           <Box className={styles.topItems}>
-            <Skeleton
-              variant="text"
-              width="40%"
-              height={20}
-              className={styles.userName}
-            />
-            <Skeleton variant="text" width="60%" />
+            <Skeleton variant='text' width='40%' height={20} className={styles.userName} />
+            <Skeleton variant='text' width='60%' />
           </Box>
-          <Skeleton variant="rectangular" height={60} />
+          <Skeleton variant='rectangular' height={60} />
         </Box>
       </Card>
     ));
@@ -87,9 +84,7 @@ const CommentsContainer: React.FC = () => {
     <Box>
       {loading
         ? renderSkeletons()
-        : comments.map((comment) => (
-            <CommentCard key={comment.commentId} comment={comment} />
-          ))}
+        : comments.map((comment) => <CommentCard key={comment.commentId} comment={comment} />)}
     </Box>
   );
 };

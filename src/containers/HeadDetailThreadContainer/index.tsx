@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
 import { Box, Skeleton } from "@mui/material";
 import styles from "./HeadDetailThreadContainer.module.scss";
@@ -40,21 +42,21 @@ const ThreadContainer: React.FC = () => {
   if (isLoading) {
     return (
       <Box className={styles.container}>
-        <Skeleton variant="rectangular" width="40%" height={20} />
-        <Skeleton variant="text" className={styles.titleThread} />
+        <Skeleton variant='rectangular' width='40%' height={20} />
+        <Skeleton variant='text' className={styles.titleThread} />
         <Box className={styles.subSection}>
           <Box className={styles.leftSection}>
-            <Skeleton variant="text" width="30%" />
-            <Skeleton variant="text" width="30%" />
+            <Skeleton variant='text' width='30%' />
+            <Skeleton variant='text' width='30%' />
           </Box>
           <Box className={styles.rightSection}>
-            <Skeleton variant="text" width="30%" />
-            <Skeleton variant="text" width="30%" />
+            <Skeleton variant='text' width='30%' />
+            <Skeleton variant='text' width='30%' />
           </Box>
         </Box>
-        <Skeleton variant="rectangular" width="100%" height={1} />
-        <Skeleton variant="text" className={styles.questionData} />
-        <Skeleton variant="text" className={styles.answer} />
+        <Skeleton variant='rectangular' width='100%' height={1} />
+        <Skeleton variant='text' className={styles.questionData} />
+        <Skeleton variant='text' className={styles.answer} />
       </Box>
     );
   }
