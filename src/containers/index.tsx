@@ -7,3 +7,4 @@ export { default as CommentCardContainer } from "./CommentCardContainer";
 export { default as ProfileContainer } from "./ProfileContainer";
 export { default as ChangePasswordContainer } from "./ChangePasswordContainer";
 export { default as ApplyAsCounselorContainer } from "./ApplyAsCounselorContainer";
+export { default as MentalProblemsContainer } from "./MentalProblemsContainer";
