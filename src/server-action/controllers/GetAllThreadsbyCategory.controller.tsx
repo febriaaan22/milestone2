@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { GetAllThreadsbyCategory } from "../services/Threads.service";
 
-export const getAllThreadsbyCategoryController = async (category: string) => {
+export const getAllThreadsbyCategoryController = async (category: number) => {
 	try {
 		const getAllbyCategory = await GetAllThreadsbyCategory({ category });
 		return NextResponse.json(
