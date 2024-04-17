@@ -1,7 +1,7 @@
 import { Box, Paper, Typography } from "@mui/material";
 import Image, { StaticImageData } from "next/image";
 
-import { InfoCard, BreadCrumbs } from "@/components";
+import { InfoCard, CustomBreadcrumbs } from "@/components";
 import { InfoCardProps } from "../InfoCard";
 
 interface ArticleProps extends InfoCardProps {
@@ -49,7 +49,7 @@ const MentalProblemsArticle: React.FC<ArticleProps> = ({
     <>
       <Box sx={{ paddingTop: "221px", width: "100%", maxWidth: "1222px", marginX: "auto" }}>
         <Box sx={{ marginBottom: 10 }}>
-          <BreadCrumbs />
+          <CustomBreadcrumbs />
           <Typography sx={{ marginBottom: 2 }}>A COMPREHENSIVE GUIDE</Typography>
           <Typography variant='h2' sx={{ marginBottom: 4 }}>
             {title}
