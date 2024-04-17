@@ -1,12 +1,7 @@
+"use client";
+
 import React, { useState } from "react";
-import {
-  Box,
-  Card,
-  Typography,
-  IconButton,
-  Menu,
-  MenuItem,
-} from "@mui/material";
+import { Box, Card, Typography, IconButton, Menu, MenuItem } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Comment } from "./type";
 import styles from "./CommentCard.module.scss";
@@ -25,9 +20,7 @@ const CommentCard: React.FC<CommentCardProps> = ({ comment }) => {
 
   const isMenuVisible =
     user &&
-    (user.role === "admin" ||
-      ((user.role === "user" || user.role === "counselor") &&
-        user.id === comment.userId));
+    (user.role === "admin" || ((user.role === "user" || user.role === "counselor") && user.id === comment.userId));
 
   const handleMenuOpen = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -57,24 +50,22 @@ const CommentCard: React.FC<CommentCardProps> = ({ comment }) => {
   };
 
   return (
-    <Card sx={{ mb: 4 }} variant="outlined">
+    <Card sx={{ mb: 4 }} variant='outlined'>
       <Box className={styles.container}>
         <Box className={styles.topItems}>
           <Box className={styles.topGroups}>
-            <Typography className={styles.userName} variant="body1">
+            <Typography className={styles.userName} variant='body1'>
               {comment.user.userName}
             </Typography>
             {isMenuVisible && (
-              <IconButton onClick={handleMenuOpen} size="small">
+              <IconButton onClick={handleMenuOpen} size='small'>
                 <MoreVertIcon />
               </IconButton>
             )}
           </Box>
-          <Typography variant="body1">
-            {formatDate(comment.commentDate)}
-          </Typography>
+          <Typography variant='body1'>{formatDate(comment.commentDate)}</Typography>
         </Box>
-        <Typography variant="body1">{comment.commentPost}</Typography>
+        <Typography variant='body1'>{comment.commentPost}</Typography>
       </Box>
 
       <Menu
@@ -83,10 +74,7 @@ const CommentCard: React.FC<CommentCardProps> = ({ comment }) => {
         onClose={handleMenuClose}
         transformOrigin={{ vertical: "top", horizontal: "right" }}
       >
-        {user?.role === "user" ||
-          (user?.role === "counselor" && (
-            <MenuItem onClick={handleEdit}>Edit</MenuItem>
-          ))}
+        {user?.role === "user" || (user?.role === "counselor" && <MenuItem onClick={handleEdit}>Edit</MenuItem>)}
         <MenuItem onClick={handleDelete}>Delete</MenuItem>
       </Menu>
     </Card>

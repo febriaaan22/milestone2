@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { ChangePasswordForm } from "@/components";
 
@@ -25,11 +27,7 @@ const ChangePasswordContainer: React.FC = () => {
   };
 
   // Function to handle form save action
-  const handleSave = (formValues: {
-    oldPassword: string;
-    newPassword: string;
-    confirmPassword: string;
-  }) => {
+  const handleSave = (formValues: { oldPassword: string; newPassword: string; confirmPassword: string }) => {
     setIsLoading(true);
     console.log("Saving", formValues); // actual save logic
 
