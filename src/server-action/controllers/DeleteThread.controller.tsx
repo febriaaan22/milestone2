@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server";
 import { DeleteThread as Erase } from "../services/Threads.service";
 
-export const DeleteThreadController = async (threadId: number) => {
+export const DeleteThreadController = async (threadId: string) => {
 	try {
-		const DeleteThreads = await Erase({ threadId });
+		const threadIdNumber = parseInt(threadId)
+		const DeleteThreads = await Erase(threadIdNumber);
 		return NextResponse.json({
 			success: true,
 			message: "Success deleted Thread",
