@@ -1,0 +1,53 @@
+.container {
+    text-align: left;
+    margin-top: 10vh;
+    padding: 15vh 8vw;
+    background-color: #f9fafd;
+    .subtitle {
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .column {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .condition {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+        gap: 16px;
+        margin-top: 2rem;
+        width: 25vw;
+      
+        .image {
+          flex-shrink: 0;
+          border-radius: 50%;
+          overflow: hidden;
+          margin-right: 1rem;
+        }
+        
+        h6 {
+          margin: 0;
+          margin-bottom: 0.5rem;
+        }
+      
+      }
+    }
+
+    .textContainer {
+        display: flex;
+        flex-direction: column;
+
+    }
+  
+  @media only screen and (max-width: 600px) {
+    .container {
+      .column {
+        &:first-child {
+          margin-bottom: 2rem;
+        }
+      }
+    }
+  }
+  

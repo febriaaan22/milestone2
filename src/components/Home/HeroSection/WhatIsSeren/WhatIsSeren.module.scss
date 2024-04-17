@@ -1,0 +1,17 @@
+.container{
+    width: 100vw;
+    display: flex;
+    padding: 10vh 8vw;
+    height: 40vh;
+}
+.leftItem{
+    flex: 1;
+}
+
+.rightItem{
+    flex: 1;
+}
+
+.highlight{
+    color: #669878;
+  }

@@ -1,0 +1,26 @@
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    max-width: 600px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    padding: 32px;
+    border-radius: 8px;
+    outline: none;
+  }
+  
+  .modalTitle {
+    margin-bottom: 24px;
+    font-weight: 700;
+  }
+  
+  .modalField {
+    margin-bottom: 16px;
+  }
+  
+  .modalButton {
+    margin-top: 24px;
+  }
+  

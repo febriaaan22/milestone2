@@ -9,13 +9,31 @@ import {
   DeleteComment as inputDeleteComment,
 } from "../types/Comment.type";
 import ErrorHandler from "../utils/ErrorHandler";
+import Users from "@/models/Users.model";
+import Threads from "@/models/Threads.model";
+import Comments from "@/models/Comments.model";
+        
 const Comment = async ({ comment, threadId, userId }: inputComment) => {
   try {
+    const findUsername = await Users.findOne({
+      where: { user_id: userId },
+      attributes: ["user_name"],
+    });
+    const username = findUsername?.getDataValue("user_name") as string;
+    const findThread = await Threads.findOne({
+      where: { thread_id: threadId },
+      attributes: ["thread_title"],
+    });
+    const threadTitle = findThread?.getDataValue("thread_title") as string;
     const CommentThread = await PostComment({ comment, threadId, userId });
     return {
       status: 200,
       message: "Success Comment Thread",
-      data: CommentThread,
+      data: {
+        titleThread: threadTitle,
+        comment: CommentThread,
+        commentator: username,
+      },
     };
   } catch (err: any) {
     throw new ErrorHandler({
@@ -44,10 +62,23 @@ const GetAllComment = async ({ threadId }: getcomment) => {
 const EditComment = async ({ comment, commentId }: inputEditingComment) => {
   try {
     const editComment = await Editing({ comment, commentId });
+    const newComment = await Comments.findOne({
+      where: { comment_id: commentId },
+      include: [
+        {
+          model: Threads,
+          attributes: ["thread_title"],
+        },
+        {
+          model: Users,
+          attributes: ["user_name"],
+        },
+      ],
+    });
     return {
       status: 200,
       message: "Success Edited Comment",
-      data: editComment,
+      data: { count: editComment, comment: newComment },
     };
   } catch (err: any) {
     throw new ErrorHandler({
