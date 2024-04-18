@@ -1,4 +1,4 @@
-import { Navbar } from "@/components";
+import { Navbar, Footer } from "@/components";
 import { MentalProblemsContainer } from "@/containers";
 
 const MentalProblemsPage = () => {
@@ -6,6 +6,7 @@ const MentalProblemsPage = () => {
     <>
       <Navbar />
       <MentalProblemsContainer />;
+      <Footer />
     </>
   );
 };
