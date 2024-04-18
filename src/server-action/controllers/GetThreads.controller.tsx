@@ -1,7 +1,7 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { GetAllThreads } from "../services/Threads.service";
 
-export const GetThreads = async () => {
+export const GetThreads = async (req: NextRequest, res: NextResponse) => {
 	try {
 		const getAllThread = await GetAllThreads();
 		return NextResponse.json(

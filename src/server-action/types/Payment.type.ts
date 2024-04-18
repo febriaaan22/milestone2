@@ -4,7 +4,11 @@ export interface Payment {
     token: string;
     snapUrl: string;
     status: string;
-    username: string;
+    userId: number;
+    appointmentId: number;
+}
+export interface PostPayment{
+    userId: number;
     appointmentId: number;
 }
 export interface checkTransactionPerDay {
