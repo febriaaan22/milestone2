@@ -10,6 +10,7 @@ import {
   GetAllThreadsbyCategory as inputCategoryId,
 } from "../types/threads.type";
 import ErrorHandler from "../utils/ErrorHandler";
+import { GetThreadsbyId } from "../repository/GetThreadbyId.repository";
 const postingThread = async ({
   threadTitle,
   category,
@@ -84,7 +85,9 @@ const GetAllThreads = async () => {
     return {
       status: 200,
       message: "Success get all Threads",
-      data: getAllThreads,
+      data: {
+        threads: getAllThreads
+      }
     };
   } catch (err: any) {
     throw new ErrorHandler({
@@ -110,10 +113,27 @@ const GetAllThreadsbyCategory = async ({ category }: inputCategoryId) => {
     });
   }
 };
+const GetThreadbyID = async(id: number)=>{
+  try{
+    const getThread = await GetThreadsbyId(id);
+    return{
+      status: 200,
+      message: "Success get thread by id",
+      data: getThread,
+    };
+  } catch(err: any){
+    throw new ErrorHandler({
+      success: false,
+      status: err.status,
+      message: err.message,
+    });
+  }
+}
 export {
   postingThread,
   editingThread,
   DeleteThread,
   GetAllThreads,
   GetAllThreadsbyCategory,
+  GetThreadbyID
 };
