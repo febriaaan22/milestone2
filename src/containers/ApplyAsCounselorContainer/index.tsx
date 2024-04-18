@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { Stepper, Step, StepLabel, Box, Typography } from "@mui/material";
 import { ApplyAsCounselorForm } from "@/components";
@@ -29,10 +31,8 @@ const ApplyAsCounselorContainer: React.FC = () => {
       >
         {" "}
         <Box>
-          <Typography variant="h4">Status</Typography>
-          <Typography variant="body1">
-            Counsellor Application Progress
-          </Typography>
+          <Typography variant='h4'>Status</Typography>
+          <Typography variant='body1'>Counsellor Application Progress</Typography>
         </Box>
         <Stepper activeStep={activeStep} alternativeLabel>
           {steps.map((label) => (

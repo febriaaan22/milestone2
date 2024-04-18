@@ -1,16 +1,9 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import {
-  AppBar,
-  Toolbar,
-  Box,
-  Menu,
-  MenuItem,
-  Button,
-  Divider,
-  CircularProgress,
-} from "@mui/material";
+import { AppBar, Toolbar, Box, Menu, MenuItem, Button, Divider, CircularProgress } from "@mui/material";
 import { LocalPoliceOutlined, PsychologyOutlined } from "@mui/icons-material";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import PersonIcon from "@mui/icons-material/Person";
@@ -66,18 +59,13 @@ const Navbar: React.FC = () => {
 
   return (
     <div className={styles.wrapper}>
-      <AppBar
-        position="static"
-        color="default"
-        elevation={1}
-        className={styles.navbar}
-      >
+      <AppBar position='static' color='default' elevation={1} className={styles.navbar}>
         <Toolbar className={styles.toolbar}>
-          <Link href="/" passHref>
+          <Link href='/' passHref>
             <span className={styles.logo}>
               <img
-                src="/seren.logo.svg"
-                alt="Logo"
+                src='/seren.logo.svg'
+                alt='Logo'
                 style={{
                   width: "45px",
                   height: "45px",
@@ -89,25 +77,17 @@ const Navbar: React.FC = () => {
             </span>
           </Link>
           <Box className={styles.navLinks}>
-            <Link href="/" passHref>
+            <Link href='/' passHref>
               <span className={`${styles.link} ${isActive("/")}`}>Home</span>
             </Link>
-            <Link href="/about-us" passHref>
-              <span className={`${styles.link} ${isActive("/about-us")}`}>
-                About Us
-              </span>
+            <Link href='/about-us' passHref>
+              <span className={`${styles.link} ${isActive("/about-us")}`}>About Us</span>
             </Link>
-            <Link href="/mental-problems" passHref>
-              <span
-                className={`${styles.link} ${isActive("/mental-problems")}`}
-              >
-                Mental Problems
-              </span>
+            <Link href='/mental-problems' passHref>
+              <span className={`${styles.link} ${isActive("/mental-problems")}`}>Mental Problems</span>
             </Link>
-            <Link href="/forum" passHref>
-              <span className={`${styles.link} ${isActive("/forum")}`}>
-                Forum
-              </span>
+            <Link href='/forum' passHref>
+              <span className={`${styles.link} ${isActive("/forum")}`}>Forum</span>
             </Link>
           </Box>
           <Box className={styles.buttonGroup}>
@@ -119,18 +99,14 @@ const Navbar: React.FC = () => {
                   className={styles.menuButton}
                   onClick={handleMenuClick}
                   endIcon={<KeyboardArrowDownIcon />}
-                  color="inherit"
+                  color='inherit'
                 >
-                  {user.role === "admin" && (
-                    <LocalPoliceOutlined sx={{ marginRight: "8px" }} />
-                  )}
-                  {user.role === "counselor" && (
-                    <PsychologyOutlined sx={{ marginRight: "8px" }} />
-                  )}
+                  {user.role === "admin" && <LocalPoliceOutlined sx={{ marginRight: "8px" }} />}
+                  {user.role === "counselor" && <PsychologyOutlined sx={{ marginRight: "8px" }} />}
                   {user.name}
                 </Button>
                 <Menu
-                  id="profile-menu"
+                  id='profile-menu'
                   anchorEl={anchorEl}
                   keepMounted
                   open={Boolean(anchorEl)}
@@ -152,26 +128,20 @@ const Navbar: React.FC = () => {
                   }}
                 >
                   <MenuItem onClick={handleProfileClick}>
-                    <PersonIcon sx={{ marginRight: "16px" }} fontSize="small" />
+                    <PersonIcon sx={{ marginRight: "16px" }} fontSize='small' />
                     Profile
                   </MenuItem>
                   <Divider />
                   <MenuItem onClick={handleLogout}>
-                    <ExitToAppIcon
-                      sx={{ marginRight: "16px" }}
-                      fontSize="small"
-                    />
+                    <ExitToAppIcon sx={{ marginRight: "16px" }} fontSize='small' />
                     Logout
                   </MenuItem>
                 </Menu>
               </>
             ) : (
               <>
-                <SecondaryButton
-                  text={"Register"}
-                  onClick={handleRegisterClick}
-                />
-                <PrimaryButton text="Login" onClick={handleLoginClick} />
+                <SecondaryButton text={"Register"} onClick={handleRegisterClick} />
+                <PrimaryButton text='Login' onClick={handleLoginClick} />
               </>
             )}
           </Box>

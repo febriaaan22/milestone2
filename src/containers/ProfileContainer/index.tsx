@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import styles from "./ProfileContainer.module.scss";
 import ProfileTabs, { TabPanel } from "@/components/ProfileTabs";
