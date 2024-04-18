@@ -11,18 +11,18 @@ export const postPayment = async ({
   token,
   snapUrl,
   status,
-  username,
+  userId,
   appointmentId,
 }: inputPayment) => {
   try {
     const transaction = await Payment.create({
-      billCode,
-      amount,
-      token,
-      snapUrl,
-      status,
-      username,
-      appointmentId,
+      payment_code: billCode,
+      payment_amount: amount,
+      payment_token: token,
+      payment_url: snapUrl,
+      payment_status: status,
+      user_id: userId,
+      appointment_id: appointmentId,
     });
     return transaction;
   } catch (err) {
@@ -58,7 +58,7 @@ export const checkTransactionPerDay = async ({
     };
     return await Payment.findAll({ where: { filter, paymentId: orderId } });
   }
-  return await Payment.findAll({ where: filter });
+  return await Payment.findAll({ where: { filter, paymentId: orderId } });
 };
 export const UpdateStatusTransaction = async ({
   paymentId,
@@ -91,12 +91,12 @@ export const allTransaction = async ({
 export const checkTransactionAppointment = async ({
   appointmentId,
 }: inputGetAllTransaction) => {
-  try{
+  try {
     const checkTransaction = await Payment.findAll({
       where: { appointment_id: appointmentId },
     });
     return checkTransaction;
-  }catch(err){
+  } catch (err) {
     console.error("Error check transaction:", err);
     throw err;
   }

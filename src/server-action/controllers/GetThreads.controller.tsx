@@ -1,4 +1,4 @@
-import { NextResponse, NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { GetAllThreads } from "../services/Threads.service";
 
 export const GetThreads = async (req: NextRequest, res: NextResponse) => {

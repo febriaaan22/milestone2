@@ -1,0 +1,31 @@
+.container {  display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "PTSD PTSD PTSD PTSD PTSD Bipolar Bipolar Bipolar Eating Eating Eating"
+      "PTSD PTSD PTSD PTSD PTSD Bipolar Bipolar Bipolar Eating Eating Eating"
+      "Schizo Schizo Schizo Mental-Problem Mental-Problem Mental-Problem Mental-Problem Mental-Problem Eating Eating Eating"
+      "Schizo Schizo Schizo Mental-Problem Mental-Problem Mental-Problem Mental-Problem Mental-Problem Anxiety Anxiety Anxiety"
+      "Schizo Schizo Schizo Mental-Problem Mental-Problem Mental-Problem Mental-Problem Mental-Problem Anxiety Anxiety Anxiety"
+      "Schizo Schizo Schizo Mental-Problem Mental-Problem Mental-Problem Mental-Problem Mental-Problem Anxiety Anxiety Anxiety"
+      "OCD OCD OCD OCD OCD Depression Depression Depression Anxiety Anxiety Anxiety"
+      "OCD OCD OCD OCD OCD Depression Depression Depression Anxiety Anxiety Anxiety";
+  }
+  
+  .Eating { grid-area: Eating; }
+  
+  .Anxiety { grid-area: Anxiety; }
+  
+  .mentalproblem { grid-area: Mental-Problem; }
+  
+  .ptsd { grid-area: PTSD; }
+  
+  .Bipolar { grid-area: Bipolar; }
+  
+  .Schizo { grid-area: Schizo; }
+  
+  .Depression { grid-area: Depression; }
+  
+  .ocd { grid-area: OCD; }

@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Plus%20Jakarta%20Sans:700|Urbanist:400');
 
 .container {
+  margin-bottom: -10vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background-color: transparent;
-  padding: 8vw 6vw 2vw 6vw;
+  padding: 8vw 6vw 0vw 6vw;
   text-align: center;
-  justify-content: space-between;
-  position: absolute;       
-  bottom: 25vh;
+  justify-content: space-between;      
+  bottom: 0;
   left: 0;
   right: 0;
   z-index: 1000;

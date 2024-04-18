@@ -9,6 +9,7 @@ import {
 	GetAllThreadsbyCategory as inputCategoryId,
 } from "../types/threads.type";
 import ErrorHandler from "../utils/ErrorHandler";
+import { GetThreadsbyId } from "../repository/GetThreadbyId.repository";
 const postingThread = async ({
 	threadTitle,
 	category,
@@ -78,20 +79,22 @@ const DeleteThread = async (threadId: number) => {
 	}
 };
 const GetAllThreads = async () => {
-	try {
-		const getAllThreads = await GetAlldata();
-		return {
-			status: 200,
-			message: "Success get all Threads",
-			data: getAllThreads,
-		};
-	} catch (err: any) {
-		throw new ErrorHandler({
-			success: false,
-			status: err.status,
-			message: err.message,
-		});
-	}
+  try {
+    const getAllThreads = await GetAlldata();
+    return {
+      status: 200,
+      message: "Success get all Threads",
+      data: {
+        threads: getAllThreads
+      }
+    };
+  } catch (err: any) {
+    throw new ErrorHandler({
+      success: false,
+      status: err.status,
+      message: err.message,
+    });
+  }
 };
 const GetAllThreadsbyCategory = async ({ category }: inputCategoryId) => {
 	try {
@@ -109,10 +112,27 @@ const GetAllThreadsbyCategory = async ({ category }: inputCategoryId) => {
 		});
 	}
 };
+const GetThreadbyID = async(id: number)=>{
+  try{
+    const getThread = await GetThreadsbyId(id);
+    return{
+      status: 200,
+      message: "Success get thread by id",
+      data: getThread,
+    };
+  } catch(err: any){
+    throw new ErrorHandler({
+      success: false,
+      status: err.status,
+      message: err.message,
+    });
+  }
+}
 export {
-	postingThread,
-	editingThread,
-	DeleteThread,
-	GetAllThreads,
-	GetAllThreadsbyCategory,
+  postingThread,
+  editingThread,
+  DeleteThread,
+  GetAllThreads,
+  GetAllThreadsbyCategory,
+  GetThreadbyID
 };
