@@ -1,4 +1,4 @@
-import { Navbar } from "@/components";
+import { Navbar, Footer } from "@/components";
 import ArticleContainer from "@/containers/ArticleContainer";
 
 const ArticlePage = () => {
@@ -6,6 +6,7 @@ const ArticlePage = () => {
     <>
       <Navbar />
       <ArticleContainer />
+      <Footer />
     </>
   );
 };

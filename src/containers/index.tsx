@@ -8,3 +8,4 @@ export { default as ProfileContainer } from "./ProfileContainer";
 export { default as ChangePasswordContainer } from "./ChangePasswordContainer";
 export { default as ApplyAsCounselorContainer } from "./ApplyAsCounselorContainer";
 export { default as MentalProblemsContainer } from "./MentalProblemsContainer";
+export { default as ThreadsContainer } from "./ThreadsContainer";
