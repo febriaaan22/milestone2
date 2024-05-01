@@ -4,4 +4,3 @@ export async function POST(req: NextRequest) {
     return await postingThreadController(req);
 }
 
-//
